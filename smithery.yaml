@@ -1,0 +1,23 @@
+# Smithery configuration for the ISP2Go MCP server.
+# https://smithery.ai/docs/config
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - apiKey
+    properties:
+      apiKey:
+        type: string
+        title: ISP2Go API key
+        description: >-
+          Your ISP2Go API key (starts with isk_). Get one from
+          `isp signup <slug>` or `isp login --key`. See https://isp2go.com
+  commandFunction: |-
+    (config) => ({
+      command: 'isp',
+      args: ['mcp-serve'],
+      env: { ISP2GO_API_KEY: config.apiKey }
+    })
+  exampleConfig:
+    apiKey: isk_your_api_key_here

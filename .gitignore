@@ -1,0 +1,8 @@
+node_modules/
+.isp2go/
+.DS_Store
+*.log
+# Public marketing repo is dist-only — source stays on the private origin
+src/
+scripts/
+.claude/

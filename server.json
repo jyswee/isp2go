@@ -1,0 +1,52 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.jyswee/isp2go",
+  "description": "ISP management for coding agents. Customers, billing, networking, tickets, RICA/POPIA compliance. 20 tools, stdio or remote SSE.",
+  "repository": {
+    "url": "https://github.com/jyswee/isp2go",
+    "source": "github"
+  },
+  "version": "1.3.1",
+  "websiteUrl": "https://isp2go.com",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "isp2go",
+      "version": "1.3.1",
+      "transport": {
+        "type": "stdio"
+      },
+      "runtimeHint": "npx",
+      "runtimeArguments": [
+        {
+          "type": "positional",
+          "value": "mcp-serve",
+          "isRequired": true
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "ISP2GO_API_KEY",
+          "description": "ISP2Go API key (isk_...). Optional: without a key the server starts in onboarding mode and can self-signup via the isp signup command.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "sse",
+      "url": "https://mcp.isp2go.com/sse",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer token using your ISP2Go API key: 'Bearer isk_...'. Optional: without one the server starts in onboarding mode and can self-signup via the isp2go_signup tool.",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
