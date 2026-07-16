@@ -1,6 +1,6 @@
 {
   "name": "isp2go",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "ISP2Go CLI — ISP management for coding agents. Customers, billing, networking, tickets. As easy as git.",
   "main": "dist/api.js",
   "bin": {
